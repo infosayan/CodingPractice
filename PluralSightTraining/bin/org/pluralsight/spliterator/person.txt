@@ -1,0 +1,18 @@
+Alice
+New York
+52
+Brian
+Chicago
+25
+Chelsea
+London
+19
+David
+Paris
+44
+Erica
+Berlin
+32
+Francisco
+Mexico
+64
