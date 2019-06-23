@@ -1,0 +1,42 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CalculatorImplService WSDL service -->
+
+  <service name="CalculatorImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://example.jaxws.javacodegeeks.com"/>
+      <parameter name="wsdlServiceElement" value="CalculatorImplService"/>
+      <parameter name="schemaQualified" value="http://example.jaxws.javacodegeeks.com"/>
+      <parameter name="wsdlServicePort" value="CalculatorImpl"/>
+      <parameter name="className" value="com.javacodegeeks.jaxws.example.CalculatorImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="CalculatorImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="add" qname="operNS:add" xmlns:operNS="http://example.jaxws.javacodegeeks.com" returnQName="retNS:addReturn" xmlns:retNS="http://example.jaxws.javacodegeeks.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:a" xmlns:pns="http://example.jaxws.javacodegeeks.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:b" xmlns:pns="http://example.jaxws.javacodegeeks.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="divide" qname="operNS:divide" xmlns:operNS="http://example.jaxws.javacodegeeks.com" returnQName="retNS:divideReturn" xmlns:retNS="http://example.jaxws.javacodegeeks.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:a" xmlns:pns="http://example.jaxws.javacodegeeks.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:b" xmlns:pns="http://example.jaxws.javacodegeeks.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="subtract" qname="operNS:subtract" xmlns:operNS="http://example.jaxws.javacodegeeks.com" returnQName="retNS:subtractReturn" xmlns:retNS="http://example.jaxws.javacodegeeks.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:a" xmlns:pns="http://example.jaxws.javacodegeeks.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:b" xmlns:pns="http://example.jaxws.javacodegeeks.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="multiply" qname="operNS:multiply" xmlns:operNS="http://example.jaxws.javacodegeeks.com" returnQName="retNS:multiplyReturn" xmlns:retNS="http://example.jaxws.javacodegeeks.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:a" xmlns:pns="http://example.jaxws.javacodegeeks.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:b" xmlns:pns="http://example.jaxws.javacodegeeks.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="add subtract divide multiply"/>
+
+  </service>
+</deployment>
